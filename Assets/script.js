@@ -11,6 +11,7 @@ var tempEl = document.getElementById('temp');
 var windEl = document.getElementById('wind');
 var humidityEl = document.getElementById('humidity');
 
+
 var cardForecastEl = document.getElementById('cardForecast');
 var day1 = document.getElementById('day1');
 var day1Icon = document.getElementById('day1Icon');
@@ -41,13 +42,13 @@ function getdata(city) {
       humidityEl.textContent = 'Humidity ' + data.main.humidity + ' %';
   })
 
-  // Get 5 day forecast
+  // Get 5 day forecast 
 
   fetch(`${forecastUrl}${city}&appid=${apikey}`)
   .then((response) => response.json())
   .then((data) => {
       console.log(data)
-      day1.textContent = moment().format('dddd');
+      day1.text = moment().format('dddd');
       day1Icon.src = 'https://openweathermap.org/img/wn/'+data.list[0].weather[0].icon+'@2x.png';
       day1Temp.textContent = data.list[0].main.temp + ' °F';
 
@@ -68,6 +69,9 @@ function getdata(city) {
       day5Temp.textContent = data.list[32].main.temp + ' °F';
   })
 };
+
+
+
 
 
 
